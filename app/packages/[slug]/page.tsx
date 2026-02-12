@@ -69,15 +69,22 @@ export default async function PackageDetailPage({ params }: PageProps) {
             <section className="mb-12">
               <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-50 mb-6">Highlights</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {tourPackage.highlights.map((highlight, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center space-x-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg"
-                  >
-                    <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full"></div>
-                    <span className="text-gray-700 dark:text-gray-300">{highlight}</span>
-                  </div>
-                ))}
+                {tourPackage.highlights.map((highlight, index) => {
+                  const searchQuery = highlight + ' ' + tourPackage.destinations.join(' ');
+                  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(searchQuery)}`;
+                  return (
+                    <a
+                      key={index}
+                      href={googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer group"
+                    >
+                      <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full group-hover:scale-125 transition-transform"></div>
+                      <span className="text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{highlight}</span>
+                    </a>
+                  );
+                })}
               </div>
             </section>
 

@@ -80,15 +80,21 @@ export default async function DestinationDetailPage({ params }: PageProps) {
             <section className="mb-8 md:mb-12">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-50 mb-4 md:mb-6">Highlights</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-                {destination.highlights.map((highlight, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center space-x-3 p-3 md:p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                  >
-                    <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full flex-shrink-0"></div>
-                    <span className="text-sm md:text-base text-gray-700 dark:text-gray-300">{highlight}</span>
-                  </div>
-                ))}
+                {destination.highlights.map((highlight, index) => {
+                  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(highlight + ' ' + destination.location + ' ' + destination.name)}`;
+                  return (
+                    <a
+                      key={index}
+                      href={googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-3 p-3 md:p-4 bg-gray-50 dark:bg-gray-800 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer group"
+                    >
+                      <div className="w-2 h-2 bg-blue-600 dark:bg-blue-400 rounded-full flex-shrink-0 group-hover:scale-125 transition-transform"></div>
+                      <span className="text-sm md:text-base text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{highlight}</span>
+                    </a>
+                  );
+                })}
               </div>
             </section>
 
