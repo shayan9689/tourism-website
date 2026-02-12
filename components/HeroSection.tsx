@@ -9,7 +9,7 @@ export default function HeroSection() {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <section className="relative h-[70vh] min-h-[600px] max-h-[800px] overflow-hidden">
+    <section className="relative h-[70vh] min-h-[500px] sm:min-h-[600px] max-h-[800px] overflow-hidden">
       {/* Background Image */}
       <Image
         src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=90"
@@ -34,12 +34,12 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="inline-block mb-4"
           >
-            <span className="px-4 py-2 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full text-blue-100 text-sm font-medium">
+            <span className="px-3 py-1.5 md:px-4 md:py-2 bg-blue-500/20 backdrop-blur-sm border border-blue-400/30 rounded-full text-blue-100 text-xs md:text-sm font-medium">
               Explore Pakistan
             </span>
           </motion.div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight">
             Discover the{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-100">
               Beauty
@@ -47,7 +47,7 @@ export default function HeroSection() {
             of Pakistan
           </h1>
           
-          <p className="text-xl md:text-2xl mb-10 text-gray-100 leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-10 text-gray-100 leading-relaxed max-w-2xl">
             From majestic mountains to pristine valleys, explore destinations that will leave you in awe.
           </p>
 
@@ -56,18 +56,18 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-gray-800/90 dark:bg-gray-900/90 backdrop-blur-md rounded-xl p-1.5 flex flex-col sm:flex-row gap-2 shadow-xl max-w-xl border border-gray-700/50"
+            className="bg-gray-800/90 dark:bg-gray-900/90 backdrop-blur-md rounded-lg md:rounded-xl p-1.5 flex flex-col sm:flex-row gap-2 shadow-xl max-w-xl border border-gray-700/50"
           >
             <input
               type="text"
               placeholder="Search destinations..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 px-4 py-2.5 bg-transparent text-white placeholder-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-base"
+              className="flex-1 px-3 py-2 md:px-4 md:py-2.5 bg-transparent text-white placeholder-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base"
             />
             <Link
               href={`/destinations${searchQuery ? `?search=${encodeURIComponent(searchQuery)}` : ""}`}
-              className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-6 py-2.5 rounded-lg font-semibold transition-all duration-200 text-center shadow-md hover:shadow-lg text-sm"
+              className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-4 py-2 md:px-6 md:py-2.5 rounded-lg font-semibold transition-all duration-200 text-center shadow-md hover:shadow-lg text-sm whitespace-nowrap"
             >
               Search
             </Link>
@@ -78,17 +78,17 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-8 flex flex-wrap gap-4"
+            className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3 md:gap-4"
           >
             <Link
               href="/destinations"
-              className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg md:rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl text-sm md:text-base text-center"
             >
               Explore Destinations
             </Link>
             <Link
               href="/packages"
-              className="bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-200"
+              className="bg-white/10 backdrop-blur-sm border-2 border-white/30 hover:bg-white/20 text-white px-6 py-3 md:px-8 md:py-4 rounded-lg md:rounded-xl font-semibold transition-all duration-200 text-sm md:text-base text-center"
             >
               View Packages
             </Link>

@@ -63,7 +63,7 @@ export default function BlogPage() {
             >
               <Link
                 href={`/blog/${post.slug}`}
-                className="bg-gray-800 rounded-2xl shadow-soft overflow-hidden hover:shadow-medium transition-all duration-300 border border-gray-700 hover:border-gray-600 group block"
+                  className="bg-gray-800 rounded-xl md:rounded-2xl shadow-soft overflow-hidden hover:shadow-medium transition-all duration-300 border border-gray-700 hover:border-gray-600 group block"
               >
               <div className="relative h-56 overflow-hidden">
                 <Image
@@ -73,32 +73,32 @@ export default function BlogPage() {
                   className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out will-change-transform"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute top-4 left-4">
-                  <span className="bg-blue-600/90 text-white px-4 py-2 rounded-xl text-sm font-semibold shadow-lg backdrop-blur-sm">
+                <div className="absolute top-2 left-2 md:top-4 md:left-4">
+                  <span className="bg-blue-600/90 text-white px-2 py-1 md:px-4 md:py-2 rounded-lg md:rounded-xl text-xs md:text-sm font-semibold shadow-lg backdrop-blur-sm">
                     {post.category}
                   </span>
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-50 mb-3 line-clamp-2 group-hover:text-blue-400 transition-colors">
+              <div className="p-4 md:p-6">
+                <h3 className="text-lg md:text-xl font-bold text-gray-50 mb-2 md:mb-3 line-clamp-2 group-hover:text-blue-400 transition-colors">
                   {post.title}
                 </h3>
-                <p className="text-gray-300 mb-4 line-clamp-3 leading-relaxed">{post.excerpt}</p>
-                <div className="flex items-center justify-between text-sm text-gray-400 pt-4 border-t border-gray-700 mb-4">
-                  <span className="font-medium">{post.author}</span>
-                  <span>{formatDate(post.date)}</span>
+                <p className="text-gray-300 mb-3 md:mb-4 line-clamp-3 leading-relaxed text-sm md:text-base">{post.excerpt}</p>
+                <div className="flex items-center justify-between text-xs md:text-sm text-gray-400 pt-3 md:pt-4 border-t border-gray-700 mb-3 md:mb-4">
+                  <span className="font-medium truncate pr-2">{post.author}</span>
+                  <span className="whitespace-nowrap">{formatDate(post.date)}</span>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 md:gap-2">
                   {post.tags.slice(0, 2).map((tag, index) => (
                     <span
                       key={index}
-                      className="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-lg text-xs font-medium border border-blue-200 dark:border-blue-700"
+                      className="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-2 py-0.5 md:px-3 md:py-1 rounded-md md:rounded-lg text-xs font-medium border border-blue-200 dark:border-blue-700"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                </div>
+              </div>
               </Link>
             </motion.div>
           ))}

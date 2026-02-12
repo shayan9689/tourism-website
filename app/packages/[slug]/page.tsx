@@ -84,12 +84,12 @@ export default async function PackageDetailPage({ params }: PageProps) {
             {/* Destinations */}
             <section className="mb-12">
               <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-50 mb-6">Destinations</h2>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2 md:gap-3">
                 {tourPackage.destinations.map((destination, index) => (
                   <Link
                     key={index}
                     href={`/destinations/${destination.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white px-4 py-2 rounded-md font-semibold transition-colors duration-200"
+                    className="bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white px-3 py-1.5 md:px-4 md:py-2 rounded-md font-semibold transition-colors duration-200 text-sm md:text-base"
                   >
                     {destination}
                   </Link>

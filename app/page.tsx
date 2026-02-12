@@ -125,7 +125,7 @@ export default function HomePage() {
               >
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="bg-gray-800 rounded-2xl shadow-soft overflow-hidden hover:shadow-medium transition-all duration-300 border border-gray-700 hover:border-gray-600 group block"
+                  className="bg-gray-800 rounded-xl md:rounded-2xl shadow-soft overflow-hidden hover:shadow-medium transition-all duration-300 border border-gray-700 hover:border-gray-600 group block"
                 >
                 <div className="relative h-48 overflow-hidden">
                   <Image
@@ -136,17 +136,17 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                 </div>
-                <div className="p-6">
-                  <span className="text-sm text-blue-300 font-semibold bg-blue-900/30 px-3 py-1 rounded-lg inline-block">
+                <div className="p-4 md:p-6">
+                  <span className="text-xs md:text-sm text-blue-300 font-semibold bg-blue-900/30 px-2 py-0.5 md:px-3 md:py-1 rounded-md md:rounded-lg inline-block">
                     {post.category}
                   </span>
-                  <h3 className="text-xl font-bold text-gray-50 mt-3 mb-2 line-clamp-2 group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-lg md:text-xl font-bold text-gray-50 mt-2 md:mt-3 mb-2 line-clamp-2 group-hover:text-blue-400 transition-colors">
                     {post.title}
                   </h3>
-                  <p className="text-gray-300 text-sm mb-4 line-clamp-2 leading-relaxed">
+                  <p className="text-gray-300 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2 leading-relaxed">
                     {post.excerpt}
                   </p>
-                  <div className="flex items-center justify-between text-sm text-gray-400 pt-4 border-t border-gray-700">
+                  <div className="flex items-center justify-between text-xs md:text-sm text-gray-400 pt-3 md:pt-4 border-t border-gray-700">
                     <span className="font-medium">{post.author}</span>
                     <span>{formatDate(post.date)}</span>
                   </div>
